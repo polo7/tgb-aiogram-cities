@@ -28,10 +28,10 @@ logging.basicConfig(
 bot = Bot(token=creds.API_TOKEN)
 dp = Dispatcher(bot)
 # game_state = {
-#	playing: bool - игра начата?
-#	cities: dict - словарь из загруженных городов
-#	empty_letter: list - список из букв, на которые не бывает городов (как там бука ё?)
-#	city_char - буква, на которую игроку нужен город
+#	playing: bool - Is the game started?
+#	cities: dict - Consists of loaded cities
+#	empty_letters: list - Letters that cities can't begin with
+#	city_char - Letter that user's answer/city should begin with
 # }
 game_state = {'playing': False}
 logging.info("Bot is initialized.")
