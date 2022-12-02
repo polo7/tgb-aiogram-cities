@@ -14,7 +14,10 @@ It is made for educational reasons to explore AIOGRAM
 """
 
 import logging
+import random
+
 from aiogram import Bot, Dispatcher, executor, types
+
 import creds # creds.py contains bot's token + other credentials and is added to .gitignore
 import settings # constants 
 
@@ -60,7 +63,11 @@ def find_last_char(city):
     return city[i]
 
 def find_city_for(letter):
-    return game_state['cities'][letter].pop() if game_state['cities'][letter] else '404'
+    if game_state['cities'][letter]:
+        random.shuffle(game_state['cities'][letter])
+        return game_state['cities'][letter].pop()
+    else:
+        return '404'
 
 
 # Set of available handlers
