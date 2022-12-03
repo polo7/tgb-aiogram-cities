@@ -1,5 +1,5 @@
-"""
-Telegram bot to play game of "Cities":
+"""Telegram bot to play game of "Cities":
+
 - Player says some city
 - Next player replies with the city which starts with the last letter of the previous city
 - If there are no cities starting with this letter then it is allowed to skip to the next letter 
@@ -27,8 +27,14 @@ logging.basicConfig(
     level=logging.INFO
     )
 
-# Initializing the bot
+# Initialization using a direct connection
 bot = Bot(token=creds.API_TOKEN)
+
+# Initialization using a proxy server:
+# 1) Add proxy URL to "creds.py": PROXY = "http://proxy.server.com:3128"
+# 2) Use the line below isntead of direct connection:
+# bot = Bot(token=creds.API_TOKEN, proxy=creds.PROXY)
+
 dp = Dispatcher(bot)
 # game_state = {
 #	playing: bool - Is the game started?
